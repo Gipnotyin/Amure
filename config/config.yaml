@@ -1,0 +1,18 @@
+SecretKey: "xKGuAqQtrrVsFXJkgQpTiuYCaYeUmNiaXcBKmIGn"
+HOST: "127.0.0.1"
+PORT: "8081"
+
+postgres:
+  host: "127.0.0.1"
+  port: "5433"
+  user: "postgres"
+  password: "ruslangv"
+  db_name: "Amure"
+  collection:
+
+TLS:
+  server_key: "./config/server.key"
+  server_crt: "./config/server.crt"
+  address: "localhost:8019"
+  network: "tcp"
+
