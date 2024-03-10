@@ -26,3 +26,19 @@ type SelectUserOut struct {
 	Data   *UserOut `db:"data" json:"data"`
 	Status int      `db:"status" json:"status"`
 }
+
+type SelectUsersIn struct {
+	Sort  string `json:"sort"`
+	Field string `json:"field"`
+}
+
+type SelectUsersOut struct {
+	Status int        `db:"status" json:"status"`
+	Data   []*UserOut `db:"data" json:"data"`
+}
+
+type Response struct {
+	Data   any    `json:"data"`
+	Status int    `json:"status"`
+	Err    string `json:"error"`
+}

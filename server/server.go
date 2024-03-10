@@ -29,7 +29,7 @@ func (c *server) Run(psg postgres.Database, client *pgx.Conn, ctx context.Contex
 	app := fiber.New()
 	app.Use(logger.New())
 
-	api := app.Group("/api")
+	api := app.Group("/user")
 
 	dbUser := user.NewUser(client, psg, ctx)
 
