@@ -1,0 +1,48 @@
+openapi: "3.0.0"
+info:
+  title: Lovely Connect
+  description: Love is in everybody
+  version: 1.0.0
+
+servers:
+  - url: 'http://92.53.70.162:8001'
+
+paths:
+  /user/login:
+    post:
+      summary: Login user
+      description: Авторизация пользователя
+      requestBody: { content: { application/json: { schema: { $ref: './models/user.yaml#/components/schemas/LoginReq' } } } }
+      responses:
+        '200':
+          description: register is success
+          headers:
+            Authorization:
+              description: JWT token
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginRes"
+        '401': { $ref: '#/components/schemas/Error' }
+        '400': { $ref: '#/components/schemas/Error' }
+        '404': { $ref: '#/components/schemas/Error' }
+        '500': { $ref: '#/components/schemas/Error' }
+
+
+components:
+  schemas:
+    EmptyResponse:
+      type: object
+    Error:
+      type: object
+      required: [ error ]
+      properties:
+        error: { type: string }
+
+    LoginRes:
+      type: object
+      properties:
+        statusCode: { type: integer }
+        err: { type: string }
